@@ -66,7 +66,49 @@ fetch(
         cMEP += 1;
       }
     });
+
+    var porcen10 = 0.0;
+    var porcen20 = 0.0;
+    var porcen30 = 0.0;
+    var porcen40 = 0.0;
+    var porcen50 = 0.0;
+    var porcen60 = 0.0;
+    var porcen70 = 0.0;
+    var porcen80 = 0.0;
+    var porcen90 = 0.0;
+    var porcen100 = 0.0;
+    
+
+    // Agrupar los datos por ciudad y calcular la cantida
+    data.forEach((item) => {
+      if (item.Proceso <= 0.1) {
+        porcen10 += 1;
+      } else if (item.Proceso >=0.1 && item.Proceso<=0.2) {
+        porcen20 += 1;
+      } else if (item.Proceso  >=0.2 && item.Proceso <=0.3) {
+        porcen30 += 1;
+      }else if (item.Proceso >=0.3 && item.Proceso<=0.4) {
+        porcen40 += 1;
+      } else if (item.Proceso  >=0.4 && item.Proceso <=0.5) {
+        porcen50 += 1;
+      }else if (item.Proceso >=0.5 && item.Proceso<=0.6) {
+        porcen60 += 1;
+      } else if (item.Proceso  >=0.6 && item.Proceso <=0.7) {
+        porcen70 += 1;
+      }else if (item.Proceso >=0.7 && item.Proceso<=0.8) {
+        porcen80 += 1;
+      } else if (item.Proceso  >=0.8 && item.Proceso <=0.9) {
+        porcen90 += 1;
+      }else if (item.Proceso  >=0.9 && item.Proceso <=1.0) {
+        porcen100 += 1;
+      }
+
+    });
+
+
+
     document.getElementById("Total").innerHTML=  countAre + countLim + countTruj;
+    
     var ctx = document.getElementById("myChart").getContext("2d");
     var chart = new Chart(ctx, {
       type: "bar",
@@ -144,6 +186,33 @@ fetch(
               "rgba(0,0,255,0.2)",
             ],
             hoverOffset: 4,
+          },
+        ],
+      },
+      option: {
+        escales: {
+          yAxes: [
+            {
+              ticks: {
+                begingAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+    var ctx3 = document.getElementById("myChart3").getContext("2d");
+    var chart = new Chart(ctx3, {
+      type: "line",
+      data: {
+        labels: ["0-10", "10-20", "20-30","30-40","40-50","50-60","60-70","70-80","80-90","90-100"],
+        datasets: [
+          {
+            label: "cantidad total de datos",
+            data: [porcen10,porcen20,porcen30,porcen40,porcen50,porcen60,porcen70,porcen80,porcen90, porcen100],
+            fill: false,
+            borderColor:'rgb(75, 192, 192)',
+            tension: 0.1
           },
         ],
       },

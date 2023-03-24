@@ -36,7 +36,12 @@ h2 {
     margin-bottom: 15px;
     font-weight: 200;
 }
-
+h3 {
+    font-size: 200px;
+    margin-bottom: 15px;
+    font-weight: 200;
+    text-align:center;
+}
 
 hr {
     border-color: white;
