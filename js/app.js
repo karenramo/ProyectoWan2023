@@ -119,15 +119,31 @@ fetch(
             label: "cantidad total de datos",
             data: [countAre, countLim, countTruj],
             backgroundColor: [
-              "rgba(255,99,132,0.2)",
-              "rgba(175,99,132,0.2)",
-              "rgba(20,99,132,0.2)",
+              "rgba(255,99,132)",
+              "rgba(175,99,132)",
+              "rgba(20,99,132)",
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(175, 159, 64)',
+              'rgb(20, 99, 86)',
             ],
             borderWith: 1,
           },
         ],
       },
-      option: {
+      options: {
+        plugins: {
+          subtitle: {
+              display: true,
+              position: 'bottom',
+              text: 'Sedes',
+              padding: {
+                top: 10,
+                bottom: 30
+              }
+          }
+      },
         escales: {
           yAxes: [
             {
@@ -136,7 +152,7 @@ fetch(
               },
             },
           ],
-        },
+        }, 
       },
     });
     var ctx2 = document.getElementById("myChart2").getContext("2d");
@@ -173,19 +189,19 @@ fetch(
               cMEP,
             ],
             backgroundColor: [
-              "rgba(255,99,132,0.2)",
-              "rgba(252, 186, 3,0.2)",
-              "rgba(56, 212, 32,0.2)",
-              "rgba(22, 186, 153,0.2)",
-              "rgba(18, 69, 179,0.2)",
-              "rgba(81, 13, 209,0.2)",
-              "rgba(176, 16, 194,0.2)",
-              "rgba(219, 15, 145,0.2)",
-              "rgba(219, 11, 60,0.2)",
-              "rgba(232, 123, 14,0.2)",
-              "rgba(0,0,255,0.2)",
+              "rgba(255,99,132)",
+              "rgba(252, 186, 3)",
+              "rgba(56, 212, 32)",
+              "rgba(22, 186, 153)",
+              "rgba(18, 69, 179)",
+              "rgba(81, 13, 209)",
+              "rgba(176, 16, 194)",
+              "rgba(219, 15, 145)",
+              "rgba(219, 11, 60)",
+              "rgba(232, 123, 14)",
+              "rgba(0,0,255)",
             ],
-            hoverOffset: 4,
+            hoverOffset: 20,
           },
         ],
       },
@@ -216,7 +232,16 @@ fetch(
           },
         ],
       },
-      option: {
+      options: {
+        animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
+        },
         escales: {
           yAxes: [
             {
@@ -225,6 +250,10 @@ fetch(
               },
             },
           ],
+          // y: {
+          //   min: 0,
+          //   max: 100
+          // }
         },
       },
     });
